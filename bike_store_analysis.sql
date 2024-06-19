@@ -263,7 +263,7 @@ with bike_type as (
 	              )
 select order_month,
        round(sum(case when order_year = 2017 then cast(quantity*list_price as numeric) else 0 end),2) as year_2017,
-	   round(sum(case when order_year = 2018 then cast(quantity*list_price as numeric) else 0 end),2) as year_2018
+       round(sum(case when order_year = 2018 then cast(quantity*list_price as numeric) else 0 end),2) as year_2018
 from bike_type
 group by order_month,month_number
 order by month_number
