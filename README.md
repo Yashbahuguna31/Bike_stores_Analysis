@@ -61,5 +61,8 @@ This analysis calculates the percentage change in revenue for each store over th
 ## Monthly Revenue Trend Over Last Two Years ## 
 This analysis tracks the monthly revenue trend over the last two years. It identifies seasonal patterns and monthly performance variations, offering a detailed view of revenue trends on a month-by-month basis.
 
+<img width="272" alt="output_10" src="https://github.com/Yashbahuguna31/Bike_stores_Analysis/assets/149990665/aa8b3b81-d376-4f22-bc6f-b1a1499b2b99">
+
+
 ## Inventory of All Brands in Stores ## 
 This analysis provides an inventory overview of all brands in respective stores. It lists the stocked quantity of products for each brand in each store, helping to manage inventory levels and understand stock availability.
