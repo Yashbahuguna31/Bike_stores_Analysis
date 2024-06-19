@@ -16,8 +16,16 @@ This analysis determines the top 5 bike categories that generated the highest re
 ## Top 3 Brands in Each Bike Category by Quantity Sold ## 
 This analysis ranks the top 3 brands within each bike category based on the quantity sold. It helps to identify which brands are leading in each category, providing a detailed view of brand performance across different segments.
 
+<img width="329" alt="output_3" src="https://github.com/Yashbahuguna31/Bike_stores_Analysis/assets/149990665/205f3361-1d19-43e9-a06f-06bebd1adabe">
+
+
 ## Top 3 Products in Each Brand by Revenue Generated ##
 This analysis identifies the top 3 products within each brand across different categories based on the revenue generated. It offers insights into the best-performing products for each brand, highlighting the key revenue drivers.
+
+<img width="593" alt="output_4_1" src="https://github.com/Yashbahuguna31/Bike_stores_Analysis/assets/149990665/3fefecf9-cccc-4dfc-a832-2ca650dea897">
+<img width="596" alt="output_4_2" src="https://github.com/Yashbahuguna31/Bike_stores_Analysis/assets/149990665/4be30e36-e8b7-486f-84d5-b9a0a4fa07fc">
+
+
 
 ## Total Revenue and Quantity Sold by Store ## 
 This analysis provides a summary of the total revenue and quantity of bikes sold for each store. It helps in understanding the performance of different stores in terms of sales and revenue generation.
