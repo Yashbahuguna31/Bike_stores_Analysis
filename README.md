@@ -30,6 +30,10 @@ This analysis identifies the top 3 products within each brand across different c
 ## Total Revenue and Quantity Sold by Store ## 
 This analysis provides a summary of the total revenue and quantity of bikes sold for each store. It helps in understanding the performance of different stores in terms of sales and revenue generation.
 
+<img width="297" alt="output_5" src="https://github.com/Yashbahuguna31/Bike_stores_Analysis/assets/149990665/f43ace37-054a-47b2-a05c-5282b6a88679">
+
+
+
 ## Top 3 Bike Categories by Revenue in Different Stores ##
 This analysis ranks the top 3 bike categories by revenue for each store. It provides insights into the most profitable categories at different store locations, allowing for a comparison of category performance across stores.
 
