@@ -1,14 +1,14 @@
 1 -- Top 5 Category of bike sold over all
 
 with bike_type as (
-					select b.brand_name,c.category_name,o.quantity
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
+			select b.brand_name,c.category_name,o.quantity
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
 	              ) 
 select category_name as Bike_Categories, sum(quantity) as total_quantity_sold
 from bike_type
@@ -19,14 +19,14 @@ limit 5
 2 -- Revenue generate by top 5 bike categories
 
 with bike_type as (
-					select  b.brand_name,c.category_name,o.quantity,p.list_price
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
+			select  b.brand_name,c.category_name,o.quantity,p.list_price
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
 	              ) 
 select category_name as Bike_Categories, round(sum(cast(quantity*list_price as numeric)),2) as revenue
 from bike_type
@@ -37,20 +37,20 @@ limit 5
 3 -- Top 3 brand in each bike category by quantity of bike sold
 
 with bike_type as (
-					select b.brand_name,c.category_name,o.quantity
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
-	              ),
+			select b.brand_name,c.category_name,o.quantity
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
+      ),
 brand_types as (
-				select category_name,brand_name,sum(quantity) as total_quantity_sold
-				from bike_type
-				group by category_name,brand_name
-				order by category_name
+			select category_name,brand_name,sum(quantity) as total_quantity_sold
+			from bike_type
+			group by category_name,brand_name
+			order by category_name
 	          )
 select category_name,brand_name,total_quantity_sold
 from (
@@ -64,22 +64,22 @@ where rnk < 4
 4 -- Top 3 product in each brand with respect to the different categories on the bases of revenue generated
 
 with bike_type as (
-					select p.product_name,b.brand_name,c.category_name,o.quantity,p.list_price
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
+			select p.product_name,b.brand_name,c.category_name,o.quantity,p.list_price
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
 	              ),
 brand_types as (
-				select category_name,brand_name,product_name, sum(quantity) as total_quantity_sold,
-	                   round(sum(cast(quantity*list_price as numeric)),2) as revenue
-				from bike_type
-				group by category_name,brand_name,product_name
-				order by category_name
-	          )
+			select category_name,brand_name,product_name, sum(quantity) as total_quantity_sold,
+			       round(sum(cast(quantity*list_price as numeric)),2) as revenue
+			from bike_type
+			group by category_name,brand_name,product_name
+			order by category_name
+	  )
 select category_name,brand_name,product_name,total_quantity_sold,revenue
 from (
 		select category_name,brand_name,product_name,
@@ -92,14 +92,14 @@ where rnk < 4
 5 -- Total revenue and quantity sold with respect to different stores.
 
 with bike_type as (
-					select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
+			select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
 	                left join orders i
 	                on o.order_id = i.order_id
 	                left join stores s
@@ -114,14 +114,14 @@ order by revenue desc
 6 -- Top 3 categories of bikes by revenue generated in different store
 
 with bike_type as (
-					select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
+			select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
 	                left join orders i
 	                on o.order_id = i.order_id
 	                left join stores s
@@ -144,14 +144,14 @@ where rnk < 4
 7 -- Top 2 brand names based on revenue generated in each categories for different store
 
 with bike_type as (
-					select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
+			select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
 	                left join orders i
 	                on o.order_id = i.order_id
 	                left join stores s
@@ -180,15 +180,15 @@ alter table orders
 alter required_date  type date USING required_date::date
 
 with bike_type as (
-					select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name,
-	                       extract(year from order_date) as order_year
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
+			select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name,
+			       extract(year from order_date) as order_year
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
 	                left join orders i
 	                on o.order_id = i.order_id
 	                left join stores s
@@ -196,31 +196,31 @@ with bike_type as (
 	              )
 select *
 from (       
-		select store,sum(case when order_year = 2016 then revenue else 0 end) as revenue_2016,
-					 sum(case when order_year = 2017 then revenue else 0 end) as revenue_2017,
-					 sum(case when order_year = 2018 then revenue else 0 end) as revenue_2018
-		from (
-				select store_name as store,order_year, sum(quantity) as total_quantity_sold,
-					   round(sum(cast(quantity*list_price as numeric)),2) as revenue
-				from bike_type
-				group by store_name,order_year
-				order by revenue
-			 ) subquery
-	   group by store
+	select store,sum(case when order_year = 2016 then revenue else 0 end) as revenue_2016,
+		     sum(case when order_year = 2017 then revenue else 0 end) as revenue_2017,
+		    sum(case when order_year = 2018 then revenue else 0 end) as revenue_2018
+	from (
+			select store_name as store,order_year, sum(quantity) as total_quantity_sold,
+				   round(sum(cast(quantity*list_price as numeric)),2) as revenue
+			from bike_type
+			group by store_name,order_year
+			order by revenue
+		 ) subquery
+   group by store
 	  ) mainquery
 	
 9 -- percentage change in revenue generated over last two years(2017,2018)
 
 with bike_type as (
-					select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name,
-	                       extract(year from order_date) as order_year
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
+			select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name,
+			       extract(year from order_date) as order_year
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
 	                left join orders i
 	                on o.order_id = i.order_id
 	                left join stores s
@@ -230,8 +230,8 @@ select store,round(((revenue_2017-revenue_2016)/revenue_2016)*100,2) as percenta
        round(((revenue_2018-revenue_2017)/revenue_2017)*100,2) as percentage_change_2018
 from (       
 		select store,sum(case when order_year = 2016 then revenue else 0 end) as revenue_2016,
-					 sum(case when order_year = 2017 then revenue else 0 end) as revenue_2017,
-					 sum(case when order_year = 2018 then revenue else 0 end) as revenue_2018
+			     sum(case when order_year = 2017 then revenue else 0 end) as revenue_2017,
+			     sum(case when order_year = 2018 then revenue else 0 end) as revenue_2018
 		from (
 				select store_name as store,order_year, sum(quantity) as total_quantity_sold,
 					   round(sum(cast(quantity*list_price as numeric)),2) as revenue
@@ -245,17 +245,17 @@ from (
 10 -- monthly trend over the last two years
 
 with bike_type as (
-					select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name,
-	                       extract(year from order_date) as order_year,
-	                       to_char(order_date,'Mon') as order_month,
-	                       extract(month from order_date) as month_number
-					from order_items o
-					left join products p
-					on o.product_id = p.product_id
-					left join brands b
-					on p.brand_id = b.brand_id
-					left join categories c
-					on p.category_id = c.category_id
+			select b.brand_name,c.category_name,o.quantity,p.list_price,s.store_name,
+				extract(year from order_date) as order_year,
+				to_char(order_date,'Mon') as order_month,
+				extract(month from order_date) as month_number
+			from order_items o
+			left join products p
+			on o.product_id = p.product_id
+			left join brands b
+			on p.brand_id = b.brand_id
+			left join categories c
+			on p.category_id = c.category_id
 	                left join orders i
 	                on o.order_id = i.order_id
 	                left join stores s
