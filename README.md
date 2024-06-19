@@ -66,3 +66,6 @@ This analysis tracks the monthly revenue trend over the last two years. It ident
 
 ## Inventory of All Brands in Stores ## 
 This analysis provides an inventory overview of all brands in respective stores. It lists the stocked quantity of products for each brand in each store, helping to manage inventory levels and understand stock availability.
+
+<img width="679" alt="output_11" src="https://github.com/Yashbahuguna31/Bike_stores_Analysis/assets/149990665/487e484c-288f-4930-b296-3bbc781faf2f">
+
