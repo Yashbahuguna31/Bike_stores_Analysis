@@ -37,6 +37,9 @@ This analysis provides a summary of the total revenue and quantity of bikes sold
 ## Top 3 Bike Categories by Revenue in Different Stores ##
 This analysis ranks the top 3 bike categories by revenue for each store. It provides insights into the most profitable categories at different store locations, allowing for a comparison of category performance across stores.
 
+<img width="402" alt="output_6" src="https://github.com/Yashbahuguna31/Bike_stores_Analysis/assets/149990665/62d10d05-0bf3-49b2-92d6-46b7ecfa250a">
+
+
 ## Top 2 Brands by Revenue in Each Category and Store ##
 This analysis identifies the top 2 brands based on revenue within each category for different stores. It helps to understand which brands are performing best in each category at various store locations.
 
