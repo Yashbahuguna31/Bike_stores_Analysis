@@ -229,15 +229,15 @@ with bike_type as (
 select store,round(((revenue_2017-revenue_2016)/revenue_2016)*100,2) as percentage_change_2017,
        round(((revenue_2018-revenue_2017)/revenue_2017)*100,2) as percentage_change_2018
 from (       
-		select store,sum(case when order_year = 2016 then revenue else 0 end) as revenue_2016,
-			     sum(case when order_year = 2017 then revenue else 0 end) as revenue_2017,
-			     sum(case when order_year = 2018 then revenue else 0 end) as revenue_2018
-		from (
-				select store_name as store,order_year, sum(quantity) as total_quantity_sold,
-					   round(sum(cast(quantity*list_price as numeric)),2) as revenue
-				from bike_type
-				group by store_name,order_year
-				order by revenue
+	 select store,sum(case when order_year = 2016 then revenue else 0 end) as revenue_2016,
+		     sum(case when order_year = 2017 then revenue else 0 end) as revenue_2017,
+		     sum(case when order_year = 2018 then revenue else 0 end) as revenue_2018
+	from (
+		select store_name as store,order_year, sum(quantity) as total_quantity_sold,
+		       round(sum(cast(quantity*list_price as numeric)),2) as revenue
+		from bike_type
+		group by store_name,order_year
+		order by revenue
 			 ) subquery
         group by store
 	) mainquery 
